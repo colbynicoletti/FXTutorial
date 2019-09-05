@@ -12,6 +12,7 @@
 <?import javafx.collections.FXCollections?>
 <?import fxml_tableview.Person?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import fxml_tableview.FormattedTableCellFactory?>
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0"
           xmlns:fx="http://javafx.com/fxml"
           fx:controller="fxml_tableview.FXMLTableViewController">
@@ -35,6 +36,10 @@
             <TableColumn text="Email Address">
                 <cellValueFactory><PropertyValueFactory property="email" />
                 </cellValueFactory>
+                <cellFactory>
+                    <FormattedTableCellFactory alignment="center">
+                    </FormattedTableCellFactory>
+                </cellFactory>
             </TableColumn>
         </columns>
         <items>
@@ -55,5 +60,15 @@
             <fx:reference source="firstNameColumn"/>
         </sortOrder>
     </TableView>
+    <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="0"
+          GridPane.rowIndex="2">
+        <TextField fx:id="firstNameField" promptText="First Name"
+                   prefWidth="90"/>
+        <TextField fx:id="lastNameField" promptText="Last Name"
+                   prefWidth="90"/>
+        <TextField fx:id="emailField" promptText="email"
+                   prefWidth="150"/>
+        <Button text="Add" onAction="#addPerson"/>
+    </HBox>
 </GridPane>
 
